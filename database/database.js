@@ -1,6 +1,9 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 const Sequelize = require('sequelize');
 
+var pg = require('pg');
+pg.defaults.ssl = true;
+
 var db;
 if (process.env.NODE_ENV !== 'production') {
   db = new Sequelize('analysis', 'root', '', {
